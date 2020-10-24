@@ -13,10 +13,19 @@
       "contributions": [
         "projectManagement"
       ]
+    },
+    {
+      "login": "SkyWolf369",
+      "name": "SkyWolf",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/41835930?v=4",
+      "profile": "https://github.com/SkyWolf369",
+      "contributions": [
+        "projectManagement"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "new-repo-template",
+  "projectName": "untitled-project",
   "projectOwner": "nhcarrigan",
   "repoType": "github",
   "repoHost": "https://github.com",
