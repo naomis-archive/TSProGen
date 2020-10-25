@@ -7,7 +7,7 @@
     },
     "scripts": {
       "build": "tsc",
-      "start": "node"
+      "start": "node ./prod/index.js"
     },
     "repository": {
       "type": "git",
