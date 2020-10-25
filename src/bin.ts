@@ -13,14 +13,22 @@ fs.readFile(path.join(__dirname, "./readme-copy.md"), "utf-8", (err, data) => {
   });
 });
 
-fs.readFile(path.join(__dirname, "./package-copy.json"), "utf-8", (err, data) => {
-  if (err) {
-    return console.log(err);
-  }
-  fs.writeFile(path.join(process.cwd() + "/test-package.json"), data, (err) => {
+fs.readFile(
+  path.join(__dirname, "./package-copy.json"),
+  "utf-8",
+  (err, data) => {
     if (err) {
       return console.log(err);
     }
-    console.log("Package.json generated");
-  });
-});
+    fs.writeFile(
+      path.join(process.cwd() + "/test-package.json"),
+      data,
+      (err) => {
+        if (err) {
+          return console.log(err);
+        }
+        console.log("Package.json generated");
+      }
+    );
+  }
+);
