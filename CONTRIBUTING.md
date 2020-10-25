@@ -29,15 +29,15 @@ This will generate a local copy of the `npm` package as a `.tgz` file.
 To install the package and test it, create a new folder _outside_ your local instance of this project. Then, run the following command:
 
 ```bash
-npm install ./path_to_file/ts-pro-gen.<version>.tgz
+npm install -g ./path_to_file/ts-pro-gen.<version>.tgz
 ```
 
 Note: `path_to_file` should be replaced with the relative path from your new folder to the file generated in the previous step. `version` should be replaced with the version number of the file generated, e.g. `0.0.0`
 
-Once the installation is complete, test the cli with this command:
+Once the installation is complete, test the cli in an empty folder with this command:
 
 ```bash
-./node_modules/ts-pro-gen/bin/ts-pro-gen
+ts-pro-gen
 ```
 
 ## Submitting Your Changes
