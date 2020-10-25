@@ -21,7 +21,6 @@ fs.readFile(path.join(__dirname, "./package-copy.json"), "utf-8", (err, data) =>
     if (err) {
       return console.log(err);
     }
-    console.log("Package.json generated generated");
+    console.log("Package.json generated");
   });
 });
-
