@@ -1,4 +1,2 @@
 #!/usr/bin/env node
-
-"use strict";
-console.log("The CLI works!");
+require('../prod/bin.js')

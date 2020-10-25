@@ -1,6 +1,5 @@
 /node_modules/
 /src/
-/prod/
 *.tgz
 .github
 .all-contributorsrc

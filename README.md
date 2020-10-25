@@ -10,6 +10,24 @@ TSProGen is a CLI tool to generate a basic file structure for a TypeScript-Node 
 This page is not yet deployed.
 <!--This page is currently deployed. [View the live website.]()-->
 
+## Installing the Tool
+
+Run the following command in your terminal to install the CLI tool:
+
+```bash
+npm install -g ts-pro-gen
+```
+
+## Running the Tool
+
+With your terminal pointed at your root project directory (where you want the files generated), use this command:
+
+```bash
+ts-pro-gen
+```
+
+This will generate the initial file structure for your project.
+
 ## Feedback, Bugs, and Contributions
 
 If you have feedback or a bug report, you can create a GitHub issue or [contact me directly](https://contact.nhcarrigan.com).

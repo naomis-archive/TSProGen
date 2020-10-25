@@ -2,7 +2,10 @@
   "name": "ts-pro-gen",
   "version": "0.0.0",
   "description": "A CLI project generator for setting up TypeScript + Node projects.",
-  "main": "index.js",
+  "main": "./prod/bin.js",
+  "bin" : {
+    "ts-pro-gen": "./bin/ts-pro-gen"
+  },
   "scripts": {
     "build": "tsc",
     "lint": "eslint src",
