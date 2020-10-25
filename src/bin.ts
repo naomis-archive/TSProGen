@@ -20,15 +20,29 @@ fs.readFile(
     if (err) {
       return console.log(err);
     }
-    fs.writeFile(
-      path.join(process.cwd() + "/test-package.json"),
-      data,
-      (err) => {
-        if (err) {
-          return console.log(err);
-        }
-        console.log("Package.json generated");
+    fs.writeFile(path.join(process.cwd() + "/package.json"), data, (err) => {
+      if (err) {
+        return console.log(err);
       }
-    );
+      console.log("Package.json generated");
+    });
+  }
+);
+
+fs.mkdir(path.join(process.cwd() + "/src"), (err) => {
+  if (err) {
+    return console.log(err);
+  }
+  console.log("src directory generated");
+});
+
+fs.writeFile(
+  path.join(process.cwd() + "/src/index.ts"),
+  "console.log('index.ts works!');",
+  (err) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log("index.ts generated");
   }
 );
