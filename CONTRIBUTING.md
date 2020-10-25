@@ -11,7 +11,7 @@ If you wish to contribute, start by forking this repository to your own GitHub a
 All changes to the CLI logic go in the `bin.ts` file. When your changes are complete, use this command to compile into JavaScript:
 
 ```bash
-tsc
+npm run build
 ```
 
 ## Bundling a Local Package
