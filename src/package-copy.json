@@ -2,7 +2,7 @@
     "name": "",
     "version": "0.0.0",
     "description": "",
-    "main": "",
+    "main": "./prod/index.js",
     "bin": {
     },
     "scripts": {
