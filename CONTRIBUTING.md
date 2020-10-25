@@ -14,8 +14,6 @@ All changes to the CLI logic go in the `bin.ts` file. When your changes are comp
 tsc
 ```
 
-Then, copy all code _below_ the comment block into the `/bin/ts-pro-gen` file.
-
 ## Bundling a Local Package
 
 Once you've copied your changes, bundle the package into an `npm` `.tgz` file with the following command:
