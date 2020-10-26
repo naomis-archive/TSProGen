@@ -28,6 +28,22 @@ ts-pro-gen
 
 This will generate the initial file structure for your project.
 
+## Testing Your New Project
+
+To test your new project, you will need to build and start the script. If you do not have TypeScript installed globally, run `npm install typescript`. Then use the following script to build the files:
+
+```bash
+npm run build
+```
+
+To run the server, use:
+
+```bash
+npm run start
+```
+
+You should see "index.ts works!" in your console - congratulations! Your project is ready for development!
+
 ## Feedback, Bugs, and Contributions
 
 If you have feedback or a bug report, you can create a GitHub issue or [contact me directly](https://contact.nhcarrigan.com).
