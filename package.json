@@ -39,7 +39,7 @@
     "fs": "0.0.1-security",
     "path": "^0.12.7"
   }
-  "publishConfig": { "registry": "https://npm.pkg.github.com/throw-out-error" } ,
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" } ,
   "repository": {
     "url": "https://github.com/nhcarrigan/TSProGen"
   }
