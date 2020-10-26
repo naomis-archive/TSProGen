@@ -15,7 +15,7 @@ This page is not yet deployed.
 Run the following command in your terminal to install the CLI tool:
 
 ```bash
-npm install -g ts-pro-gen
+npm install -g tsprogen
 ```
 
 ## Running the Tool
