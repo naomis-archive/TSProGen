@@ -1,10 +1,10 @@
 {
-  "name": "ts-pro-gen",
-  "version": "0.0.0",
+  "name": "tsprogen",
+  "version": "1.1.0",
   "description": "A CLI project generator for setting up TypeScript + Node projects.",
   "main": "./prod/bin.js",
   "bin": {
-    "ts-pro-gen": "./bin/ts-pro-gen"
+    "tsprogen": "./bin/tsprogen"
   },
   "scripts": {
     "build": "tsc",

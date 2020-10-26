@@ -23,7 +23,7 @@ npm install -g tsprogen
 With your terminal pointed at your root project directory (where you want the files generated), use this command:
 
 ```bash
-ts-pro-gen
+tsprogen
 ```
 
 This will generate the initial file structure for your project.
