@@ -46,3 +46,30 @@ fs.writeFile(
     console.log("index.ts generated");
   }
 );
+
+fs.readFile(
+  path.join(__dirname + "/../tsconfig.json"),
+  "utf-8",
+  (err, data) => {
+    if (err) {
+      return console.log(err);
+    }
+    fs.writeFile(path.join(process.cwd() + "/tsconfig.json"), data, (err) => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log("tsconfig.json generated");
+    });
+  }
+);
+
+fs.writeFile(
+  path.join(process.cwd() + "/.gitignore"),
+  "/node_modules/",
+  (err) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log(".gitignore generated");
+  }
+);
