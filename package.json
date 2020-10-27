@@ -19,7 +19,6 @@
   },
   "author": "",
   "license": "GPL-3.0",
-   "publishConfig": { "registry": "https://npm.pkg.github.com" },
   "bugs": {
     "url": "https://github.com/nhcarrigan/TSProGen/issues"
   },
