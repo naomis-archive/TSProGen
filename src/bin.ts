@@ -29,9 +29,28 @@ const createProject = async (
       overwrite: false,
     });
   } catch (err) {
-    task.output = `Failed to copy template files: ${err.message}`;
-    throw err;
+    throw new Error(`Failed to copy template files: ${err.message}`);
   }
+};
+
+const promptConfig = async (
+  ctx: TaskCtx,
+  task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
+) => {
+  ctx.config = {
+    packageManager: await task.prompt([
+      {
+        type: "autocomplete",
+        name: "packageManager",
+        message: "What package manager would you like to use?",
+        default: "npm",
+        choices: ["pnpm", "npm", "yarn"],
+      },
+    ]),
+  };
+  await fs.writeFile(configFile, JSON.stringify(ctx.config), {
+    encoding: "utf-8",
+  });
 };
 
 const configFile = `${os.homedir()}/.config/tsprogen.json`;
@@ -40,49 +59,56 @@ const getConfig = async (
   task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
 ): Promise<void> => {
   if (!(await fs.pathExists(configFile))) {
-    ctx.config = await task.prompt([
-      {
-        type: "list",
-        name: "packageManager",
-        message: "What package manager would you like to use?",
-        default: "npm",
-        choices: ["pnpm", "npm", "yarn"],
-      },
-    ]);
-    await fs.writeFile(configFile, JSON.stringify(ctx.config), {
-      encoding: "utf-8",
-    });
+    await promptConfig(ctx, task);
   }
   ctx.config = JSON.parse(await fs.readFile(configFile, { encoding: "utf-8" }));
+
+  if (
+    !ctx.config.packageManager ||
+    (ctx.config.packageManager &&
+      !["npm", "pnpm", "yarn"].includes(ctx.config.packageManager.trim()))
+  ) {
+    await promptConfig(ctx, task);
+  }
 };
 
 const installDependencies = async (
   ctx: TaskCtx,
   task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
 ) => {
-  const { stderr } = await execAsync(`${ctx.config.packageManager} install`, {
-    cwd: process.cwd(),
-  });
+  if (!["npm", "pnpm", "yarn"].includes(ctx.config.packageManager.trim())) {
+    throw new Error(`Install error: Invalid package manager in ${configFile}`);
+  }
+  const { stderr } = await execAsync(
+    `${ctx.config.packageManager.trim()} install`,
+    {
+      cwd: process.cwd(),
+    }
+  );
   if (stderr) {
-    task.output = `Install error: ${stderr}`;
-    throw new Error(stderr);
+    throw new Error(`Install error: ${stderr}`);
   }
 };
 
-const tasks = new Listr<TaskCtx>([
-  {
-    title: "Retrieve Config",
-    task: getConfig,
-  },
-  {
-    title: "Create Project Files",
-    task: createProject,
-  },
-  {
-    title: "Install Dependencies",
-    task: installDependencies,
-  },
-]);
+const tasks = new Listr<TaskCtx>(
+  [
+    {
+      title: "Retrieve Config",
+      task: getConfig,
+    },
+    {
+      title: "Create Project Files",
+      task: createProject,
+    },
+    {
+      title: "Install Dependencies",
+      task: installDependencies,
+    },
+  ],
+  { concurrent: false }
+);
 
 // Run all project tasks
-tasks.run().catch(() => null);
+tasks.run().catch(() => {
+  // do nothing
+});
