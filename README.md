@@ -44,11 +44,18 @@ npm run start
 
 You should see "index.ts works!" in your console - congratulations! Your project is ready for development!
 
-## Feedback, Bugs, and Contributions
+## Feedback and Bugs
 
-If you have feedback or a bug report, you can create a GitHub issue or [contact me directly](https://contact.nhcarrigan.com).
+If you have feedback or a bug report, please feel free to open a GitHub issue!
 
-If you would like to contribute to the project, you may create a Pull Request containing your proposed changes and I will review it as soon as I am able!
+## Contributing
+
+If you would like to contribute to the project, you may create a Pull Request containing your proposed changes and we will review it as soon as we are able! Please review our [contributing guidelines](CONTRIBUTING.md) first.
+
+## Code of Conduct
+
+Before interacting with our community, please read our [Code of Conduct](CODE_OF_CONDUCT.md).
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
