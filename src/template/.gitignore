@@ -1,6 +1,6 @@
-/node_modules/
+node_modules/
 .env
-/prod/
+prod/
 *.tgz
 pnpm-lock.*
 yarn.lock

@@ -1,75 +1,28 @@
-import fs from "fs";
-import path from "path";
+import fse from "fs-extra";
 
-fs.readFile(path.join(__dirname, "./readme-copy.md"), "utf-8", (err, data) => {
-  if (err) {
-    return console.log(err);
-  }
-  fs.writeFile(path.join(process.cwd() + "/README.md"), data, (err) => {
-    if (err) {
-      return console.log(err);
+/* function getFiles(dir: string): string[][] {
+  const files = [];
+  const dirents = fs.readdirSync(dir, { withFileTypes: true });
+  for (const dirent of dirents) {
+    const res = path.resolve(dir, dirent.name);
+    if (dirent.isDirectory()) {
+      return files.concat(getFiles(res));
+    } else {
+      files.push([res, dir]);
     }
-    console.log("Readme generated");
+  }
+  return files;
+} */
+try {
+  const templateDir = `${__dirname}/../src/template`;
+  const targetDir = process.cwd();
+  if (!fse.existsSync(targetDir)) {
+    fse.mkdirSync(targetDir, { recursive: true });
+  }
+  fse.copySync(templateDir, targetDir, {
+    errorOnExist: true,
+    overwrite: false,
   });
-});
-
-fs.readFile(
-  path.join(__dirname, "./package-copy.json"),
-  "utf-8",
-  (err, data) => {
-    if (err) {
-      return console.log(err);
-    }
-    fs.writeFile(path.join(process.cwd() + "/package.json"), data, (err) => {
-      if (err) {
-        return console.log(err);
-      }
-      console.log("Package.json generated");
-    });
-  }
-);
-
-fs.mkdir(path.join(process.cwd() + "/src"), (err) => {
-  if (err) {
-    return console.log(err);
-  }
-  console.log("src directory generated");
-});
-
-fs.writeFile(
-  path.join(process.cwd() + "/src/index.ts"),
-  "console.log('index.ts works!');",
-  (err) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log("index.ts generated");
-  }
-);
-
-fs.readFile(
-  path.join(__dirname + "/../tsconfig.json"),
-  "utf-8",
-  (err, data) => {
-    if (err) {
-      return console.log(err);
-    }
-    fs.writeFile(path.join(process.cwd() + "/tsconfig.json"), data, (err) => {
-      if (err) {
-        return console.log(err);
-      }
-      console.log("tsconfig.json generated");
-    });
-  }
-);
-
-fs.writeFile(
-  path.join(process.cwd() + "/.gitignore"),
-  "/node_modules/",
-  (err) => {
-    if (err) {
-      return console.log(err);
-    }
-    console.log(".gitignore generated");
-  }
-);
+} catch (err) {
+  console.error(err);
+}

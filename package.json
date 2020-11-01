@@ -8,7 +8,6 @@
   },
   "scripts": {
     "build": "tsc",
-    "postbuild": "copyfiles -f src/* -e src/*.ts prod",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "start": "node ./prod/index.js"
@@ -24,6 +23,7 @@
   },
   "homepage": "https://github.com/nhcarrigan/TSProGen#readme",
   "devDependencies": {
+    "@types/fs-extra": "^9.0.2",
     "@types/node": "^14.14.2",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
+    "fs-extra": "^9.0.1",
     "path": "^0.12.7"
   }
 }
