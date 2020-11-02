@@ -13,13 +13,5 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "double", { "allowTemplateLiterals": true }],
-    "semi": ["error", "always"],
-    "prefer-const": "error",
-    "eqeqeq": ["error", "always"],
-    "curly": ["error"]
-  }
+  "plugins": ["@typescript-eslint"]
 }

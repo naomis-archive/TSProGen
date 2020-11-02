@@ -1,0 +1,8 @@
+node_modules/
+prod/
+*.tgz
+pnpm-lock.*
+yarn.lock
+*.env*
+*.log
+logs/

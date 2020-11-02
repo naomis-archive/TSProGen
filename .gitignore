@@ -2,3 +2,5 @@
 .env
 /prod/
 *.tgz
+pnpm-lock.*
+yarn.lock
