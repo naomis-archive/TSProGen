@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "postbuild": "copyfiles -f src/* -e src/*.ts prod",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "start": "node ./prod/index.js"
@@ -27,6 +28,7 @@
     "@types/node": "^14.14.6",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
+    "copyfiles": "^2.4.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",

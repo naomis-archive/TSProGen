@@ -14,12 +14,9 @@ export interface TaskCtx {
   config: Config;
 }
 
-const createProject = async (
-  _: TaskCtx,
-  task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
-) => {
+const createProject = async () => {
   try {
-    const templateDir = `${__dirname}/../src/template`;
+    const templateDir = `${__dirname}/template`;
     const targetDir = process.cwd();
     if (!fs.pathExists(targetDir)) {
       await fs.mkdir(targetDir);
