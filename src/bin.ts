@@ -69,10 +69,7 @@ const getConfig = async (
   }
 };
 
-const installDependencies = async (
-  ctx: TaskCtx,
-  task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
-) => {
+const installDependencies = async (ctx: TaskCtx) => {
   if (!["npm", "pnpm", "yarn"].includes(ctx.config.packageManager.trim())) {
     throw new Error(`Install error: Invalid package manager in ${configFile}`);
   }
@@ -102,7 +99,7 @@ const tasks = new Listr<TaskCtx>(
       task: installDependencies,
     },
   ],
-  { concurrent: false }
+  { concurrent: 1 }
 );
 
 // Run all project tasks

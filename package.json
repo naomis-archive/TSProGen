@@ -1,6 +1,6 @@
 {
   "name": "tsprogen",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A CLI project generator for setting up TypeScript + Node projects.",
   "main": "./prod/bin.js",
   "bin": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "postbuild": "copyfiles -f src/* -e src/*.ts prod",
+    "postbuild": "copyfiles -fa src/template/**/* prod/template",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "start": "node ./prod/index.js"
