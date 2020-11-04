@@ -1,3 +1,3 @@
 # TypeScript Project
 
-This project was generated with the `ts-pro-gen` CLI tool.
+This project was generated with the `tsprogen` CLI tool.

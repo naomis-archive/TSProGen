@@ -18,13 +18,31 @@ const createProject = async () => {
   try {
     const templateDir = `${__dirname}/template`;
     const targetDir = process.cwd();
+    const gitIgnore = `/node_modules/\n/prod/\n`;
     if (!fs.pathExists(targetDir)) {
       await fs.mkdir(targetDir);
     }
+    await fs.mkdir(`${targetDir}/src`);
     await fs.copy(templateDir, targetDir, {
       errorOnExist: true,
       overwrite: false,
     });
+    fs.writeFile(`${targetDir}/.gitignore`, gitIgnore, (err) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    });
+    fs.writeFile(
+      `${targetDir}/src/index.ts`,
+      `console.log("index.ts works!")`,
+      (err) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      }
+    );
   } catch (err) {
     throw new Error(`Failed to copy template files: ${err.message}`);
   }
