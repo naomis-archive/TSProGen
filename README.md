@@ -52,6 +52,12 @@ If you have feedback or a bug report, please feel free to open a GitHub issue!
 
 If you would like to contribute to the project, you may create a Pull Request containing your proposed changes and we will review it as soon as we are able! Please review our [contributing guidelines](CONTRIBUTING.md) first.
 
+## Package Updates
+
+- Patch updates will be shipped as they are produced.
+- Minor updates, when produced, will be shipped on Mondays.
+- Major updates (with breaking changes) will be announced before shipping, and will ship on the 1st of the month.
+
 ## Code of Conduct
 
 Before interacting with our community, please read our [Code of Conduct](CODE_OF_CONDUCT.md).
