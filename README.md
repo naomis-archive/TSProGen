@@ -54,7 +54,9 @@ If you would like to contribute to the project, you may create a Pull Request co
 
 ## Package Updates
 
-The package will be updated every week if an update is avaliable or if multiple updates get piled up it will be updated as soon as possible.
+- Patch updates will be shipped as they are produced.
+- Minor updates, when produced, will be shipped on Mondays.
+- Major updates (with breaking changes) will be announced before shipping, and will ship on the 1st of the month.
 
 ## Code of Conduct
 
