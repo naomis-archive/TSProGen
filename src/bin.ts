@@ -14,11 +14,12 @@ export interface TaskCtx {
   config: Config;
 }
 
+// generate mandatory files
 const createProject = async () => {
   try {
     const templateDir = `${__dirname}/template`;
     const targetDir = process.cwd();
-    const gitIgnore = `/node_modules/\n/prod/\n`;
+
     if (!fs.pathExists(targetDir)) {
       await fs.mkdir(targetDir);
     }
@@ -26,12 +27,6 @@ const createProject = async () => {
     await fs.copy(templateDir, targetDir, {
       errorOnExist: true,
       overwrite: false,
-    });
-    fs.writeFile(`${targetDir}/.gitignore`, gitIgnore, (err) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
     });
     fs.writeFile(
       `${targetDir}/src/index.ts`,
@@ -48,6 +43,7 @@ const createProject = async () => {
   }
 };
 
+// select package manager
 const promptConfig = async (
   ctx: TaskCtx,
   task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
@@ -68,7 +64,10 @@ const promptConfig = async (
   });
 };
 
+//save selection locally
 const configFile = `${os.homedir()}/.config/tsprogen.json`;
+
+// check for package manager selection
 const getConfig = async (
   ctx: TaskCtx,
   task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
@@ -87,6 +86,96 @@ const getConfig = async (
   }
 };
 
+// prompt for optional files individually
+const createOptionalFiles = async (
+  ctx: TaskCtx,
+  task: ListrTaskWrapper<TaskCtx, typeof ListrRenderer>
+) => {
+  try {
+    const templateDir = `${__dirname}/optional`;
+    const targetDir = process.cwd();
+
+    //eslint config
+    const linter = await task.prompt([
+      {
+        type: "autocomplete",
+        name: "linter",
+        message: "Generate .eslintrc.json?",
+        default: "yes",
+        choices: ["yes", "no"],
+      },
+    ]);
+    if (linter === "yes") {
+      const data = await fs.readFile(`${templateDir}/.eslintrc.json`);
+      fs.writeFile(`${targetDir}/.eslintrc.json`, data, (err) => {
+        if (err) {
+          console.error(err);
+        }
+      });
+    }
+
+    // gitignore
+    const gitIgnore = await task.prompt([
+      {
+        type: "autocomplete",
+        name: "gitignore",
+        message: "Generate .gitignore?",
+        default: "yes",
+        choices: ["yes", "no"],
+      },
+    ]);
+    if (gitIgnore === "yes") {
+      const data = `/node_modules/\n/prod/\n`;
+      fs.writeFile(`${targetDir}/.gitignore`, data, (err) => {
+        if (err) {
+          console.error(err);
+        }
+      });
+    }
+
+    // editorconfig
+    const edConfig = await task.prompt([
+      {
+        type: "autocomplete",
+        name: "editor config",
+        message: "Generate .editorconfig?",
+        default: "yes",
+        choices: ["yes", "no"],
+      },
+    ]);
+    if (edConfig === "yes") {
+      const data = await fs.readFile(`${templateDir}/.editorconfig`);
+      fs.writeFile(`${targetDir}/.editorconfig`, data, (err) => {
+        if (err) {
+          console.error(err);
+        }
+      });
+    }
+
+    //husky config
+    const husky = await task.prompt([
+      {
+        type: "autocomplete",
+        name: "husky",
+        message: "Generate .huskyrc?",
+        default: "yes",
+        choices: ["yes", "no"],
+      },
+    ]);
+    if (husky === "yes") {
+      const data = await fs.readFile(`${templateDir}/.huskyrc`);
+      fs.writeFile(`${targetDir}/.huskyrc`, data, (err) => {
+        if (err) {
+          console.error(err);
+        }
+      });
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+//automatically install the dependencies
 const installDependencies = async (ctx: TaskCtx) => {
   if (!["npm", "pnpm", "yarn"].includes(ctx.config.packageManager.trim())) {
     throw new Error(`Install error: Invalid package manager in ${configFile}`);
@@ -102,6 +191,7 @@ const installDependencies = async (ctx: TaskCtx) => {
   }
 };
 
+//generates task list in console
 const tasks = new Listr<TaskCtx>(
   [
     {
@@ -111,6 +201,10 @@ const tasks = new Listr<TaskCtx>(
     {
       title: "Create Project Files",
       task: createProject,
+    },
+    {
+      title: "Create Optional Files",
+      task: createOptionalFiles,
     },
     {
       title: "Install Dependencies",
