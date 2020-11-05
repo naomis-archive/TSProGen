@@ -52,6 +52,10 @@ If you have feedback or a bug report, please feel free to open a GitHub issue!
 
 If you would like to contribute to the project, you may create a Pull Request containing your proposed changes and we will review it as soon as we are able! Please review our [contributing guidelines](CONTRIBUTING.md) first.
 
+## Package Updates
+
+The package will be updated every week if an update is avaliable or if multiple updates get piled up it will be updated as soon as possible.
+
 ## Code of Conduct
 
 Before interacting with our community, please read our [Code of Conduct](CODE_OF_CONDUCT.md).
