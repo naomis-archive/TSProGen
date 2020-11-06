@@ -7,8 +7,11 @@ TSProGen is a CLI tool to generate a basic file structure for a TypeScript-Node 
 
 ## Live Version
 
-This page is not yet deployed.
-<!--This page is currently deployed. [View the live website.]()-->
+This page is currently deployed. [View the live website.](https://www.npmjs.com/package/tsprogen)
+
+## Discord Server
+
+Feel free to join our [Discord Server](https://discord.gg/cuumcM8MuR) for help using the tool, questions regarding how to contribute, or anything else!
 
 ## Installing the Tool
 
