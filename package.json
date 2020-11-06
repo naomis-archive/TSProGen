@@ -1,6 +1,6 @@
 {
   "name": "tsprogen",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A CLI project generator for setting up TypeScript + Node projects.",
   "main": "./prod/bin.js",
   "bin": {
