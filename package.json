@@ -18,8 +18,8 @@
     "type": "git",
     "url": "git+https://github.com/nhcarrigan/TSProGen.git"
   },
-  "author": "",
-  "license": "GPL-3.0",
+  "author": "Nicholas Carrigan",
+  "license": "AGPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/nhcarrigan/TSProGen/issues"
   },
