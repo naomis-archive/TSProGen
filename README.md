@@ -1,7 +1,4 @@
 # TSProGen
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 TSProGen is a CLI tool to generate a basic file structure for a TypeScript-Node project.
 
@@ -60,27 +57,6 @@ If you would like to contribute to the project, you may create a Pull Request co
 ## Code of Conduct
 
 Before interacting with our community, please read our [Code of Conduct](CODE_OF_CONDUCT.md).
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://www.nhcarrigan.com"><img src="https://avatars1.githubusercontent.com/u/63889819?v=4" width="100px;" alt=""/><br /><sub><b>Nicholas Carrigan (he/him)</b></sub></a><br /><a href="#projectManagement-nhcarrigan" title="Project Management">📆</a></td>
-    <td align="center"><a href="https://github.com/SkyWolf369"><img src="https://avatars3.githubusercontent.com/u/41835930?v=4" width="100px;" alt=""/><br /><sub><b>SkyWolf</b></sub></a><br /><a href="#projectManagement-SkyWolf369" title="Project Management">📆</a></td>
-    <td align="center"><a href="https://theoparis.com/about"><img src="https://avatars0.githubusercontent.com/u/11761863?v=4" width="100px;" alt=""/><br /><sub><b>Theo Paris</b></sub></a><br /><a href="https://github.com/nhcarrigan/TSProGen/commits?author=creepinson" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ## Licensing
 
